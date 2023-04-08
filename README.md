@@ -1,11 +1,20 @@
 # React JS Project Dockerization for Development and Production
 
-This README file provides instructions for running a React JS project, created using **create-react-app**, in a Docker container for development and production modes. The project contains separate **.env** files for both development and production modes. In development mode, the project runs on localhost:3000, while in production mode, it runs on [localhost:8080](http://localhost:8080).
+This README file provides instructions for running a React JS project, created using `create-react-app`, in a Docker container for development and production modes. The project contains separate `.env` files for both development and production modes. In development mode, the project runs on [localhost:3000](http://localhost:3000), while in production mode, it runs on [localhost:8080.](http://localhost:8080)
 
 ## Requirements
 
-    - Docker Engine
-    - Docker Compose
+Make sure you have installed:
+
+- Docker Engine
+
+Check for Docker Engine:
+
+```
+docker --version
+```
+
+If it is not installed, [visit to this page](https://docs.docker.com/engine/)
 
 ## Usage
 
@@ -21,12 +30,17 @@ To run the project using docker-compose, use the following command:
 docker-compose -f docker-compose-dev.yml up -d
 ```
 
+You can see result on [localhost:3000](http://localhost:3000)
+
 For production mode, use the following command:
 
 ```
 docker-compose -f docker-compose-prod.yml up -d
 
+
 ```
+
+You can see result on [localhost:8080](http://localhost:8080)
 
 To stop and remove the containers, use the following command:
 
