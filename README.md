@@ -36,8 +36,6 @@ For production mode, use the following command:
 
 ```
 docker-compose -f docker-compose-prod.yml up -d
-
-
 ```
 
 You can see result on [localhost:8080](http://localhost:8080)
@@ -46,7 +44,6 @@ To stop and remove the containers, use the following command:
 
 ```
 docker-compose -f <docker-compose-file> down
-
 ```
 
 ## Using `docker run` Command
@@ -61,7 +58,6 @@ For production mode, use the following command:
 
 ```
 docker run -it --rm -p 8080:80 --env-file .env react-docker:prod
-
 ```
 
 ## Conclusion
