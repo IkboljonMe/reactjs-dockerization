@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# React JS Project Dockerization for Development and Production
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This README file provides instructions for running a React JS project, created using **create-react-app**, in a Docker container for development and production modes. The project contains separate **.env** files for both development and production modes. In development mode, the project runs on localhost:3000, while in production mode, it runs on [localhost:8080](http://localhost:8080).
 
-## Available Scripts
+## Requirements
 
-In the project directory, you can run:
+    - Docker Engine
+    - Docker Compose
 
-### `npm start`
+## Usage
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+There are two ways to run the project in a Docker container: using `docker-compose` command and using `docker run` command.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+`docker-compose` is preffered.
 
-### `npm test`
+### Using `docker-compose` Command
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To run the project using docker-compose, use the following command:
 
-### `npm run build`
+```
+docker-compose -f docker-compose-dev.yml up -d
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+For production mode, use the following command:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+docker-compose -f docker-compose-prod.yml up -d
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
 
-### `npm run eject`
+To stop and remove the containers, use the following command:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+docker-compose -f <docker-compose-file> down
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Using `docker run` Command
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+You can run the project in a Docker container for development mode using the following command:
 
-## Learn More
+```
+docker run -it --rm -v ${PWD}:/app -v /app/node_modules -p 3000:3000 --env-file .env.dev react-docker:dev
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+For production mode, use the following command:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+docker run -it --rm -p 8080:80 --env-file .env react-docker:prod
 
-### Code Splitting
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Conclusion
 
-### Analyzing the Bundle Size
+This README file demonstrates a simple way to dockerize a React JS project for development and production modes. To run the project in a Docker container, you can use either the `docker run` or `docker-compose` command based on your requirements.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+For more information on how to use Docker CLI in the terminal, please refer to other resources and README files.
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thank you for using this README file. Good luck with your project!
